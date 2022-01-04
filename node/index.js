@@ -45,19 +45,29 @@ app.get('/', async (req, res) => {
       console.log(err);
       return;
     }
-    await results.forEach(async element => {
-      return peoples.push(element.name)
-    });
 
-    res.send(`
+    if (results.length === 0) {
+      res.send(`
+      <h1> Full Cycle Rocks! </h1> 
+      <h2>No data found</h2> 
+      * caso deseje adicionar algum nome, url: POST http://localhost:8080/ BODY: { "name": "Nome" } <br>`)
+    } else {
+
+      await results.forEach(async element => {
+        return peoples.push(element.name)
+      });
+
+      res.send(`
       <h1> Full Cycle Rocks! </h1> 
       <h2> - Lista de nomes cadastrada no banco de dados </h2> 
       <h3> ${peoples.map(people => `<p> ${people}</p>`).join('')} </h3>
-      * caso deseje adicionar algum nome, url: POST http://localhost:8080/ BODY: { "name": "Nome" } <br>
+      * caso deseje adicionar algum nome, url: POST http://localhost:8080/ adicionando ao BODY: { "name": "Nome" } <br>
       * caso deseje deletar algum nome, url: DELETE http://localhost:8080/:name
     `)
+    }
   })
-});
+}
+);
 
 app.delete('/:name', async (req, res) => {
   const { name } = req.params;
