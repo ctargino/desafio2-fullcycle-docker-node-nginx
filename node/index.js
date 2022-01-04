@@ -53,8 +53,8 @@ app.get('/', async (req, res) => {
       <h1> Full Cycle Rocks! </h1> 
       <h2> - Lista de nomes cadastrada no banco de dados </h2> 
       <h3> ${peoples.map(people => `<p> ${people}</p>`).join('')} </h3>
-      * caso deseje adicionar algum nome, url: POST http://localhost:3000/ BODY: { "name": "Nome" } <br>
-      * caso deseje deletar algum nome, url: DELETE http://localhost:3000/:name
+      * caso deseje adicionar algum nome, url: POST http://localhost:8080/ BODY: { "name": "Nome" } <br>
+      * caso deseje deletar algum nome, url: DELETE http://localhost:8080/:name
     `)
   })
 });
