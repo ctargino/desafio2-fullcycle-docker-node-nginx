@@ -3,7 +3,6 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN yarn
 RUN apt-get update && apt-get install -y wget
 
 ENV DOCKERIZE_VERSION v0.6.1
