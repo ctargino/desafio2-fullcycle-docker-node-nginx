@@ -50,7 +50,7 @@ app.get('/', async (req, res) => {
       res.send(`
       <h1> Full Cycle Rocks! </h1> 
       <h2>No data found</h2> 
-      * caso deseje adicionar algum nome, url: POST http://localhost:8080/ BODY: { "name": "Nome" } <br>`)
+      * caso deseje adicionar algum nome, url: POST http://localhost:8080/ adicionando ao BODY: { "name": "Nome" } <br>`)
     } else {
 
       await results.forEach(async element => {
